@@ -15,8 +15,11 @@ const App = () => {
 
     setTitle("");
     setDetails("");
-    // setNotes([...notes, { title, details }]);
-    const newNote = [...notes, { title, details }];
+    
+    const newNote = [...notes, { title, details }]; // and this is shortcut of newNote.push({ title, details });
+
+    // setNotes([...notes, { title, details }]); we can also write the whole thing in this line
+    
     setNotes(newNote);
   };
 
@@ -53,8 +56,15 @@ const App = () => {
       <div className="lg:w-1/2 lg:border-l-4 p-6 overflow-y-auto">
         <h1 className="text-3xl font-bold text-gray-800 sm:mb-5">My Notes</h1>
         <div className="flex flex-wrap items-start gap-5 ">
-          <div className="h-50 w-40 rounded bg-gray-700"></div>
-          <div className="h-50 w-40 rounded bg-gray-700"></div>
+          {notes.map((note, index) => (
+            <div
+              key={index}
+              className="w-40 h-52 bg-[url('https://i.pinimg.com/736x/ca/66/14/ca6614bc04cff1e4d6b013c9f55fff08.jpg')] bg-cover rounded shadow-xl p-4 flex flex-col justify-between"
+            >
+              <h2 className="text-lg leading-tight font-semibold">{note.title}</h2>
+              <p className="text-gray-800 leading-tight">{note.details}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
