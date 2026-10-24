@@ -10,9 +10,6 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Title:", title);
-    console.log("Details:", details);
-
     setTitle("");
     setDetails("");
     
@@ -26,7 +23,7 @@ const App = () => {
   return (
     <div className="h-screen lg:flex bg-gray-100 text-black">
       <form
-        className="flex flex-col w-1/2 items-start gap-2 p-10 "
+        className="flex flex-col lg:w-1/2 items-center lg:items-start gap-2 p-10 "
         onSubmit={handleSubmit}
       >
         {/* first input for heading */}
@@ -53,13 +50,13 @@ const App = () => {
           Add Note
         </button>
       </form>
-      <div className="lg:w-1/2 lg:border-l-4 p-6 overflow-y-auto">
-        <h1 className="text-3xl font-bold text-gray-800 sm:mb-5">My Notes</h1>
-        <div className="flex flex-wrap items-start gap-5 ">
+      <div className="lg:w-1/2 lg:border-l-4 p-6 overflow-y-auto flex flex-col items-center lg:items-start ">
+        <h1 className="text-3xl font-bold text-gray-800 mb-5 ">My Notes</h1>
+        <div className="flex flex-wrap items-start gap-5 lg:justify-start justify-center">
           {notes.map((note, index) => (
             <div
               key={index}
-              className="w-40 h-52 bg-[url('https://i.pinimg.com/736x/ca/66/14/ca6614bc04cff1e4d6b013c9f55fff08.jpg')] bg-cover rounded shadow-xl p-4 flex flex-col justify-between"
+              className="w-40 h-60 bg-[url('https://i.pinimg.com/736x/ca/66/14/ca6614bc04cff1e4d6b013c9f55fff08.jpg')] bg-cover rounded shadow-xl p-4 flex flex-col justify-between"
             >
               <h2 className="text-lg leading-tight font-semibold">{note.title}</h2>
               <p className="text-gray-800 leading-tight">{note.details}</p>
